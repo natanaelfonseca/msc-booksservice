@@ -3,7 +3,6 @@ package br.com.treinamento.booksws.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,15 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.treinamento.booksws.client.stockws.Stock;
+import br.com.treinamento.booksws.client.stockws.StockFeignClient;
 import br.com.treinamento.booksws.model.Book;
 import br.com.treinamento.booksws.repository.BooksRepository;
 
 @RestController
 @RequestMapping("/api/v1/books")
 public class BooksController {
-
-	@Value("${msc1.title}")
-	private String testProperty;
+	
+	//Feign Client
+    @Autowired
+    StockFeignClient stockService;
 
 	@Autowired
 	private BooksRepository booksRepository;
@@ -42,17 +44,9 @@ public class BooksController {
 		booksRepository.save(book);
 	}
 
-	/**
-	 * Criei esse path apenas para testar se as configuracoes estao sendo pegas do
-	 * config server
-	 * 
-	 * @return
-	 */
-	@GetMapping("/configs")
-	public String test() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("msc1.title - ").append(testProperty).append(" ");
-		return builder.toString();
+	@GetMapping("/allbalances")
+	public List<Stock> get() {
+		return stockService.getAllBalance();
 	}
-
+	
 }
