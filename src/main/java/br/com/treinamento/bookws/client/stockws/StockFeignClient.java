@@ -1,4 +1,4 @@
-package br.com.treinamento.booksws.client.stockws;
+package br.com.treinamento.bookws.client.stockws;
 
 import java.util.List;
 

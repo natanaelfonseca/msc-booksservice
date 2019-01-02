@@ -1,4 +1,4 @@
-package br.com.treinamento.booksws.controller;
+package br.com.treinamento.bookws.controller;
 
 import java.util.List;
 
@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.treinamento.booksws.client.stockws.Stock;
-import br.com.treinamento.booksws.client.stockws.StockFeignClient;
-import br.com.treinamento.booksws.model.Book;
-import br.com.treinamento.booksws.repository.BooksRepository;
+import br.com.treinamento.bookws.client.stockws.Stock;
+import br.com.treinamento.bookws.client.stockws.StockFeignClient;
+import br.com.treinamento.bookws.model.Book;
+import br.com.treinamento.bookws.repository.BooksRepository;
 
 @RestController
-@RequestMapping("/api/v1/books")
+@RequestMapping("/v1/books")
 public class BooksController {
 	
 	//Feign Client

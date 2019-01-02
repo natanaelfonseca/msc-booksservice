@@ -1,9 +1,8 @@
-package br.com.treinamento.booksws.model;
+package br.com.treinamento.bookws.client.stockws;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,17 +14,14 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Book {
+public class Stock {
 
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String title;
-	private String language;
-
-	@ManyToOne
-	private Author author;
-
+	private Long quantity;
+	private String region;
+	
 	//Contrutores gerados pelo Lombock
 	//Gets e Sets gerados pelo lombock
 	
